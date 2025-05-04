@@ -105,26 +105,6 @@
     outline: none;
   }
   
-  /* Адаптивность */
-  @media (max-width: 768px) {
-    .container {
-      padding: 1rem;
-    }
-    
-    h1 {
-      font-size: 2rem;
-    }
-    
-    .navbar {
-      padding: 0.5rem 0;
-    }
-  }
-  
-  p {
-    margin-bottom: 15px;
-  }
-
-  /* Стили для лаконичной таблицы в спокойной цветовой гамме */
   table {
     width: 100%;
     border-collapse: collapse;
@@ -164,45 +144,9 @@
     transform: translateX(5px);
   }
 
-  /* Чередование цветов строк (опционально) */
+  /* Чередование цветов строк */
   tbody tr:nth-child(even) {
     background-color: #fafafa;
-  }
-
-  /* Адаптивность */
-  @media screen and (max-width: 768px) {
-    table {
-      font-size: 0.9em;
-      box-shadow: none;
-    }
-    
-    th, td {
-      padding: 0.8rem;
-    }
-    
-    thead {
-      display: none;
-    }
-    
-    tr {
-      display: block;
-      margin-bottom: 1rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-      border-radius: 6px;
-    }
-    
-    td {
-      display: block;
-      text-align: right;
-      border-bottom: none;
-    }
-    
-    td::before {
-      content: attr(data-label);
-      float: left;
-      font-weight: 500;
-      color: var(--primary-color);
-    }
   }
 
   .correspondence-detail-form__row {
