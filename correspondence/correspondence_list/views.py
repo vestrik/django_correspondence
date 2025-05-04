@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 
 from .models import Correspondence
-from accounts.models import UserDepartment
+from accounts.models import UserDepartment, Department
 from .forms import CorrespondenceForm
 from .filters import CorrespondenceFilter
 
@@ -75,7 +75,9 @@ def update_correspondence(request, slug):
             form.save()          
             return render(request,'correspondence_list/correspondence_detail.html', {'correspondence':correspondence})
     else:
-        form = CorrespondenceForm(instance=correspondence)
+        # получаем объект "Отдел", который указан для данного письма и передаем его как начальное значение поля "department", чтобы оно было выбрано в форме
+        dep_obj = Department.objects.get(department_name=str(correspondence.department))
+        form = CorrespondenceForm(instance=correspondence, initial={'department': dep_obj})        
         
     return render(request,'correspondence_list/correspondence_detail_update.html', {'form': form})
 
