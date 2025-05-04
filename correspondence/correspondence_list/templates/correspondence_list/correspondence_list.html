@@ -4,6 +4,16 @@
 <div class="create-new-correspondence">
     <div><a href="{% url 'correspondence_list:create'%}" class="btn">Создать письмо</a></div>
 </div>
+
+<div>
+    <form method="get">
+            {{ correspondence_filter.form }}
+        <button class="btn" type="submit">Поиск</button>
+    </form>
+</div>
+
+
+
 <div class="correspondence_list">
     <table>
         <tr>

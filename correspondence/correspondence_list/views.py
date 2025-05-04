@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from .models import Correspondence
 from accounts.models import UserDepartment
 from .forms import CorrespondenceForm
+from .filters import CorrespondenceFilter
 
 def get_user_departments(request):
     """ Получаем отделы текущего пользователя """
@@ -32,10 +33,13 @@ def home(request):
 
     departments_to_filter = get_user_departments(request)
     if check_is_user_admin(request):
-        correspondences = Correspondence.objects.all().order_by('-date')[:10]
+        correspondences = Correspondence.objects.all().order_by('-date')
     else:
-        correspondences = Correspondence.objects.filter(department__in=departments_to_filter).order_by('-date')[:10] 
-    return render(request,'correspondence_list/correspondence_list.html', {'correspondences':correspondences})
+        correspondences = Correspondence.objects.filter(department__in=departments_to_filter).order_by('-date')
+
+    correspondence_filter = CorrespondenceFilter(request.GET, queryset=correspondences)
+    correspondences = correspondence_filter.qs[:10]
+    return render(request,'correspondence_list/correspondence_list.html', {'correspondences':correspondences, 'correspondence_filter': correspondence_filter})
 
 def get_correpnondence_by_access(request, slug):
     """ Получаем письмо из БД, если пользователь - админ, либо если состоит в соответствующем отделе. """
