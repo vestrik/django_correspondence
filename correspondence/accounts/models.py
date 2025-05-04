@@ -6,6 +6,10 @@ class Department(models.Model):
     
     def __str__(self):
         return f"{self.department_name}"
+    
+    class Meta:
+        verbose_name = 'Отдел'
+        verbose_name_plural = 'Отделы'
 
 
 class UserDepartment(models.Model):
@@ -14,4 +18,8 @@ class UserDepartment(models.Model):
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
     
     def __str__(self):
-        return f"Department: {self.department}, user: {self.user}"
+        return f"Отдел: {self.department}, Пользователь: {self.user}"
+    
+    class Meta:
+        verbose_name = 'Связь пользователей с отделами'
+        verbose_name_plural = 'Связи пользователей с отделами'

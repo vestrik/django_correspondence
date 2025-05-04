@@ -15,6 +15,10 @@ class Correspondence(models.Model):
     date = models.DateField(blank=True, null=True)
     outcoming_file = models.FileField(upload_to="%Y_%m-%d/", null=True, blank=True) 
     incoming_file = models.FileField(upload_to="%Y_%m-%d/", null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'Корреспонденция'
+        verbose_name_plural = 'Корреспонденция'
     
     
     def __str__(self):

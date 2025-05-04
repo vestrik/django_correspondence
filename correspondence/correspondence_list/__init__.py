@@ -1,0 +1,1 @@
+default_app_config = 'correspondence_list.apps.CorrespondenceListConfig'
