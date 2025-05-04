@@ -1,0 +1,229 @@
+/* Основные стили для спокойного и минималистичного дизайна */
+:root {
+    --primary-color: #6C7A89;     /* Приглушенный серо-синий */
+    --secondary-color: #9AA9B9;   /* Светлый серо-голубой */
+    --background-color: #F5F7FA;  /* Светлый серовато-белый */
+    --text-color: #3A4A4F;        /* Темный серо-синий для текста */
+    --accent-color: #E3E8ED;      /* Светлый серый акцент */
+  }
+  
+  /* Сброс стандартных отступов и выбор шрифта */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+  
+  /* Контейнер для центрирования контента */
+  .container {
+    max-width: 99%;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .containerh {
+    max-width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+    height: 100%;
+    overflow: auto;
+  }
+
+  .user_name {
+    color: green;
+  }
+  .username_field {    
+    margin-top: 10px;
+    color: black;
+  }
+  
+  /* Заголовки */
+  h1, h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  /* Навигационное меню */
+  .navbar {
+    background-color: var(--accent-color);
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+  
+  nav li {
+    display: inline-block;
+  }
+
+  nav .li_right_side {
+    float: right;
+  }
+  
+  /* Кнопки */
+  .btn {
+    display: inline-block;
+    text-decoration: none;
+    margin-left: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-size: 15px;
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(108, 122, 137, 0.3);
+  }
+   
+  input, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+  
+  input:focus, textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+  }
+  
+  /* Адаптивность */
+  @media (max-width: 768px) {
+    .container {
+      padding: 1rem;
+    }
+    
+    h1 {
+      font-size: 2rem;
+    }
+    
+    .navbar {
+      padding: 0.5rem 0;
+    }
+  }
+  
+  p {
+    margin-bottom: 15px;
+  }
+
+  /* Стили для лаконичной таблицы в спокойной цветовой гамме */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 0.95em;
+  }
+
+  thead {
+    background-color: var(--primary-color);
+    color: white;
+  }
+
+  th {
+    padding: 1.2rem 1.5rem;
+    text-align: left;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--accent-color);
+    color: var(--text-color);
+  }
+
+  tr {
+    transition: all 0.2s ease;
+  }
+
+  /* Эффект при наведении */
+  tr:not(:first-child):hover {
+    background-color: var(--accent-color);
+    transform: translateX(5px);
+  }
+
+  /* Чередование цветов строк (опционально) */
+  tbody tr:nth-child(even) {
+    background-color: #fafafa;
+  }
+
+  /* Адаптивность */
+  @media screen and (max-width: 768px) {
+    table {
+      font-size: 0.9em;
+      box-shadow: none;
+    }
+    
+    th, td {
+      padding: 0.8rem;
+    }
+    
+    thead {
+      display: none;
+    }
+    
+    tr {
+      display: block;
+      margin-bottom: 1rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      border-radius: 6px;
+    }
+    
+    td {
+      display: block;
+      text-align: right;
+      border-bottom: none;
+    }
+    
+    td::before {
+      content: attr(data-label);
+      float: left;
+      font-weight: 500;
+      color: var(--primary-color);
+    }
+  }
+
+  .correspondence-detail-form__row {
+    display: flex;   
+  }
+
+  .correspondence-detail-form__field-value {
+    width: 80%;
+  }
+
+  .correspondence-detail-form__field-title {
+    display: flex;
+    justify-content: center;    
+  }
+
+  .correspondence-detail-form__save-button {
+    display: flex;
+    justify-content: center;
+  }
+
+  .correspondence-detail-form__edit-button {
+    display: flex;
+    justify-content: center;
+  }

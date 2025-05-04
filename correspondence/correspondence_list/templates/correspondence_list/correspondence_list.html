@@ -1,0 +1,43 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<div class="create-new-correspondence">
+    <div><a href="{% url 'correspondence_list:create'%}" class="btn">Создать письмо</a></div>
+</div>
+<div class="correspondence_list">
+    <table>
+        <tr>
+            <th>№ Исходящего</th>
+            <th>Получатель</th>
+            <th>Отдел</th>
+            <th>Категория</th>
+            <th>Тема</th>
+            <th>Дата</th>
+            <th>Исходящие письма</th>
+            <th>Входящие письма</th>
+        </tr>
+        {% for correspondence in correspondences %}
+        <tr>
+            <td>                
+                <a href='{{ correspondence.slug}}' target="_self">{{ correspondence.outcoming_mail_number}}</a>
+            </td>
+            <td>{% if correspondence.outcoming_mail_receiver %}{{ correspondence.outcoming_mail_receiver}}{% endif %}</td>
+            <td>{% if correspondence.department %}{{ correspondence.department}}{% endif %}</td>
+            <td>{% if correspondence.category %}{{ correspondence.category}}{% endif %}</td>
+            <td>{% if correspondence.header %}{{ correspondence.header}}{% endif %}</td>
+            <td>{% if correspondence.date %}{{ correspondence.date}}{% endif %}</td>
+            <td>
+                {% if correspondence.outcoming_file %}                
+                <a href="{{ correspondence.outcoming_file.url }}">{{ correspondence.outcoming_filename }}</a><br>
+                {% endif %}
+            </td>
+            <td>
+                {% if correspondence.incoming_file %} 
+                <a href="{{ correspondence.incoming_file.url }}">{{ correspondence.incoming_filename }}</a><br>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

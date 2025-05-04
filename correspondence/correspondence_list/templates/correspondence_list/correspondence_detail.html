@@ -1,0 +1,125 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+
+<div class="correspondence_detail">  
+  {% if user.get_username %}  
+    <table>
+        {% csrf_token %}
+        <tr>
+            <td>
+            <div class="correspondence-detail-form__field-title">№ Исходящего:</div>
+            </td>
+            <td>
+            <div class="correspondence-detail-form__field-value">
+                {% if correspondence.outcoming_mail_number %} 
+                    {{ correspondence.outcoming_mail_number}}
+                {% endif %}  
+            </div>
+            </td>
+        </div>
+        </tr>
+        <tr>
+            <td>
+            <div class="correspondence-detail-form__field-title">Получатель:</div>
+            </td>
+            <td>
+            <div class="correspondence-detail-form__field-value">
+                {% if correspondence.outcoming_mail_receiver %} 
+                    {{ correspondence.outcoming_mail_receiver}}
+                {% endif %}                
+            </div>
+            </td>
+        </div>
+        </tr>
+        <tr>
+            <td>
+            <div class="correspondence-detail-form__field-title">Отдел:</div>
+            </td>
+            <td>
+            <div class="correspondence-detail-form__field-value">
+                {% if correspondence.department %} 
+                    {{ correspondence.department}}
+                {% endif %}
+            </div>
+            </td>
+        </div>
+        </tr>
+        <tr>
+            <td>
+            <div class="correspondence-detail-form__field-title">Категория:</div>
+            </td>
+            <td>
+            <div class="correspondence-detail-form__field-value">
+                {% if correspondence.category %} 
+                    {{ correspondence.category}}
+                {% endif %}
+            </div>
+            </td>
+        </div>
+        </tr>
+        <tr>
+            <td>
+            <div class="correspondence-detail-form__field-title">Тема письма:</div>
+            </td>
+            <td>
+            <div class="correspondence-detail-form__field-value">
+                {% if correspondence.header %} 
+                    {{ correspondence.header}}
+                {% endif %}
+            </div>
+            </td>
+        </div>
+        </tr>
+        <tr>
+            <td>
+            <div class="correspondence-detail-form__field-title">Дата письма:</div>
+            </td>
+            <td>
+            <div class="correspondence-detail-form__field-value">
+                {% if correspondence.date %} 
+                    {{ correspondence.date}}
+                {% endif %}
+            </div>
+            </td>
+        </div>
+        </tr>
+        <tr>
+            <td>
+            <div class="correspondence-detail-form__field-title">Исходящие письма:</div>
+            </td>
+            <td>
+            <div class="correspondence-detail-form__field-value">
+                {% if correspondence.outcoming_file %}                
+                    <a href="{{ correspondence.outcoming_file.url }}">{{ correspondence.outcoming_filename }}</a><br>
+                {% endif %}
+            </div>
+            </td>
+        </div>
+        </tr>
+        <tr>
+            <td>
+            <div class="correspondence-detail-form__field-title">Входящие письма:</div>
+            </td>
+            <td>
+            <div class="correspondence-detail-form__field-value">
+                {% if correspondence.incoming_file %} 
+                    <a href="{{ correspondence.incoming_file.url }}">{{ correspondence.incoming_filename }}</a><br>
+                {% endif %}
+            </div>
+            </td>
+        </div>
+        </tr>
+    </table>
+
+    <div class="correspondence-detail-form__edit-button">
+        {% if correspondence.slug %} 
+            <div><a href="{% url 'correspondence_list:update_correspondence' slug=correspondence.slug %}" class="btn">Редактировать</a></div>
+        {% endif %}
+    </div>
+  
+  {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+
+<div class="correspondence_detail">  
+  {% if user.get_username %}
+  <form method="post" enctype="multipart/form-data">
+      <table>
+        {% csrf_token %}
+        <tr>
+            <td>
+              <div class="correspondence-detail-form__field-title">№ Исходящего:</div>
+            </td>
+            <td>
+              <div class="correspondence-detail-form__field-value">
+                {{form.outcoming_mail_number}}
+              </div>
+            </td>
+          </div>
+        </tr>
+        <tr>
+            <td>
+              <div class="correspondence-detail-form__field-title">Получатель:</div>
+            </td>
+            <td>
+              <div class="correspondence-detail-form__field-value">
+                {{form.outcoming_mail_receiver}}
+              </div>
+            </td>
+          </div>
+        </tr>
+        <tr>
+            <td>
+              <div class="correspondence-detail-form__field-title">Отдел:</div>
+            </td>
+            <td>
+              <div class="correspondence-detail-form__field-value">
+                {{form.department}}
+              </div>
+            </td>
+          </div>
+        </tr>
+        <tr>
+            <td>
+              <div class="correspondence-detail-form__field-title">Категория:</div>
+            </td>
+            <td>
+              <div class="correspondence-detail-form__field-value">
+                {{form.category}}
+              </div>
+            </td>
+          </div>
+        </tr>
+        <tr>
+            <td>
+              <div class="correspondence-detail-form__field-title">Тема письма:</div>
+            </td>
+            <td>
+              <div class="correspondence-detail-form__field-value">
+                {{form.header}}
+              </div>
+            </td>
+          </div>
+        </tr>
+        <tr>
+            <td>
+              <div class="correspondence-detail-form__field-title">Дата письма:</div>
+            </td>
+            <td>
+              <div class="correspondence-detail-form__field-value">
+                {{form.date}}
+              </div>
+            </td>
+          </div>
+        </tr>
+        <tr>
+            <td>
+              <div class="correspondence-detail-form__field-title">Исходящие письма:</div>
+            </td>
+            <td>
+              <div class="correspondence-detail-form__field-value">
+                {{form.outcoming_file}}
+              </div>
+            </td>
+          </div>
+        </tr>
+        <tr>
+            <td>
+              <div class="correspondence-detail-form__field-title">Входящие письма:</div>
+            </td>
+            <td>
+              <div class="correspondence-detail-form__field-value">
+                {{form.incoming_file}}
+                
+              </div>
+            </td>
+          </div>
+        </tr>
+      </table>
+      <div class="correspondence-detail-form__save-button">
+        <button class="btn" type="submit">Сохранить</button>
+      </div>
+  </form>
+  {% endif %}
+</div>
+
+{% endblock %}

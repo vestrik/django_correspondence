@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Home Page</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+  <header>
+    <div class="containerh">
+      
+      <nav class="navbar">
+        <ul>
+          <li>
+            {% if user.get_username %}
+            <form action="{% url 'correspondence_list:home'%}">
+              <button  class="btn">Список писем</button>
+            </form>
+          </li>         
+          <li class="li_right_side">
+            <form class="logout_form" action="{% url 'accounts:logout'%}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn">Выйти</button>
+            </form>
+          </li>
+          <li class="li_right_side">           
+            <div class="username_field">
+              Вы вошли как: <span class="user_name" id="auth">{{ user.get_username }}</span>
+            </div>
+          </li>
+          {% else %}
+          <li>
+            <form action="{% url 'accounts:login'%}">
+              <button  class="btn">Войти</button>
+            </form>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="main">
+    <!--a name="top"></a-->
+
+    <div class="container">
+
+
+      {% block content %}
+      {% endblock %}
+
+    </div>
+
+  </div>
+
+  <footer>
+
+  </footer>
+
+</body>
+
+
+</html>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+
+  $( function()
+  {
+    $( "#id_date" ).datepicker({
+      dateFormat: 'dd.mm.yy',
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+</script>
