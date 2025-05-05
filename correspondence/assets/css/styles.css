@@ -171,3 +171,21 @@
     display: flex;
     justify-content: center;
   }
+
+  .all-filter-elements {
+    display: flex;
+  }
+
+  .filter-elem {
+    margin: 5px;
+  }
+
+  form {
+    margin: 10px;
+  }
+
+  .filter-btn {   
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-end;
+  }

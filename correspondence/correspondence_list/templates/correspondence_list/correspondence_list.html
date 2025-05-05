@@ -6,12 +6,39 @@
 </div>
 
 <div>
-    <form method="get">
-            {{ correspondence_filter.form }}
-        <button class="btn" type="submit">Поиск</button>
+    <form class="filter-form" method="get">
+        <div class="all-filter-elements">
+            <div class="filter-elem">
+                <div class="filter-label">№ Исходящего</div>                
+                <div class="filter-object">{{ correspondence_filter.form.outcoming_mail_number }}</div>
+            </div>
+            <div class="filter-elem">
+                <div class="filter-label">Получатель</div> 
+                <div class="filter-object">{{ correspondence_filter.form.outcoming_mail_receiver }}</div>
+            </div>
+            <div class="filter-elem">
+                <div class="filter-label">Отдел</div> 
+                <div class="filter-object">{{ correspondence_filter.form.department }}</div>
+            </div>
+            <div class="filter-elem">
+                <div class="filter-label">Категория</div> 
+                <div class="filter-object">{{ correspondence_filter.form.category }}</div>
+            </div>
+            <div class="filter-elem">
+                <div class="filter-label">Тема</div> 
+                <div class="filter-object">{{ correspondence_filter.form.header }}</div>
+            </div>
+            <div class="filter-elem">
+                <div class="filter-label">Дата</div> 
+                <div class="filter-object">{{ correspondence_filter.form.date }}</div>
+            </div>
+            <div class="filter-btn">
+                <button class="btn" type="submit">Найти</button>
+            </div>
+            
+        </div>
     </form>
 </div>
-
 
 
 <div class="correspondence_list">
