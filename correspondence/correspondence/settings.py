@@ -83,9 +83,11 @@ DATABASES = {
         "NAME": "django_db",
         "USER": "django_admin",
         "PASSWORD": "django_pass",
-        "OPTIONS": {
-            "init_command": "SET default_storage_engine=INNODB",
-        },
+        #"HOST": "192.168.1.72",
+        #"PORT": "3306",
+        #"OPTIONS": {
+        #    "init_command": "SET default_storage_engine=INNODB",
+        #},
     }
 }
 
